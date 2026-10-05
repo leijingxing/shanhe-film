@@ -13,7 +13,7 @@ try{
  await page.goto(root+'?qa=1',{waitUntil:'networkidle'});await page.waitForFunction(()=>window.__film);await save('00-cover');
  evidence.renderer=await page.evaluate(()=>{const gl=document.querySelector('canvas').getContext('webgl2');return {version:gl.getParameter(gl.VERSION),renderer:gl.getParameter(gl.RENDERER),vendor:gl.getParameter(gl.VENDOR)}});
  await page.locator('#start').click();const started=Date.now();
- await page.waitForFunction(()=>window.__film.state.scoreReady,{timeout:45000});
+ await page.waitForFunction(()=>window.__film.state.scoreReady,null,{timeout:45000});
  evidence.audioReady=await page.evaluate(()=>window.__film.state.scoreReady);assert.equal(evidence.audioReady,true);
  for(const t of [8,16,25,45,65,85,105,125,145,165,179.9]){
   await page.waitForFunction(t=>window.__film.state.position>=t,t,{timeout:50000});await save('film-'+String(Math.floor(t)).padStart(3,'0'));console.log('NATURAL_FRAME',t,JSON.stringify(await page.evaluate(()=>window.__film.state)));
