@@ -1,3 +1,14 @@
 .DS_Store
 assets/*.png
 node_modules/
+qa/*.png
+qa/*.mp4
+qa/*.webm
+qa/v1-film.js
+qa/scene-*.json
+qa/_world-egl.js
+qa/egl-*.jpg
+qa/contact-sheet.jpg
+qa-browser/
+
+tests/.generated-world.mjs

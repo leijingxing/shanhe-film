@@ -1,0 +1,14 @@
+{
+  "name": "shanhe-film",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A three-minute real-time WebGL Chinese landscape film",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "test": "node tests/timeline.test.mjs && node tests/geometry.test.mjs && node tests/animation.test.mjs && node tests/score-transport.test.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  }
+}

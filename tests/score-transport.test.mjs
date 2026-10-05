@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';
+import {FilmScore} from '../score.js';
+const score=new FilmScore();score.context={currentTime:0,state:'running'};score.buffer={};score._master={gain:{value:score.volume}};score._source={};let restarts=0;score._start=()=>{restarts++;score._filmAt=score._time;score._sourceAt=score.context.currentTime};
+for(let t=.5;t<20;t+=.5){score.context.currentTime=t;score.update(t,true)}assert.equal(restarts,0,'Low frame rate must not restart correctly synchronized audio');score.update(80,true);assert.equal(restarts,1,'A real forward seek must restart at the target');score.context.currentTime+=.5;score.update(80.5,true);assert.equal(restarts,1);score.update(10,true);assert.equal(restarts,2,'A backward seek must restart');console.log('PASS: low-FPS audio continuity, forward seek, backward seek, clock synchronization.');

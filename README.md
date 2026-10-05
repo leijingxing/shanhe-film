@@ -1,19 +1,38 @@
-# 山河入梦 · A Dream of Mountains
+# 山河入梦 · A Living Landscape
 
-180 秒、八幕东方山水电影网页。纯 HTML/CSS/JavaScript，无构建依赖、无付费 API、无跟踪。
+A 180-second original real-time 3D Chinese landscape film. Version 2 replaces the original image slideshow with a continuous modeled river valley, cinematic cameras, independently animated objects and a synchronized original score.
 
-## 本地预览
+## Run
 
-```sh
-python3 -m http.server 8000
-```
+Serve this folder over HTTP. No build step or external runtime CDN is required.
 
-打开 http://localhost:8000 。静态资源均使用相对路径，可直接部署 GitHub Pages 项目站点。
+    python3 -m http.server 8000
 
-## 交互
+Open http://localhost:8000. All runtime paths are relative and work on GitHub Pages.
 
-入画开启三分钟影片及原创 Web Audio 五声音阶氛围配乐。支持暂停、重播、静音、时间轴拖动、章节跳转、全屏；键盘 Space 播放/暂停、M 静音、左右方向键前后 5 秒。页面隐藏时自动暂停。系统减少动态偏好下禁用运镜、粒子、雾移动和淡化转场，保留影片章节与操作。
+## Film systems
 
-## 素材
+- Sculpted, asymmetric 3D karst peaks with procedural ink/blue-green brush shading, atmospheric perspective and an opening terrain formation
+- Real-time planar water reflections, moving wave patterns and a boat-local wake
+- A modeled wooden boat, articulating oar and independently swaying pine trees
+- Shader waterfall with falling spray, drifting mist and directional storm rain
+- Deforming three-dimensional ink ribbons and articulated cranes
+- Twelve composed camera shots across six acts, with foreground occlusion and full camera travel
+- A deterministic 180-second stereo score synthesized locally: physical-model plucked strings, breath flute, drones, water, wind, percussion and thunder
+- Pause, seek, chapter navigation, replay, mute, fullscreen, adaptive rendering quality and keyboard controls
 
-八幅山水画由本项目使用 AI 原创生成。配乐由代码实时合成，不使用第三方录音。字体使用 Google Fonts 的 Noto Serif SC（SIL Open Font License），无法联网时回退系统宋体。
+## Playback
+
+Click 入画 to play and permit audio. Audio preparation may take a few seconds on first use. Space toggles pause, M toggles sound, and the arrow keys move five seconds. Tab hiding automatically pauses playback. Reduced-motion preference disables the autoplay cover camera; the film remains opt-in and can be paused or scrubbed. No camera, microphone, account, tracking or paid API is used.
+
+Modern WebGL 2 support is required. If unavailable, the page explains the requirement rather than silently replacing animation with still images. The quality button lowers render resolution while retaining the actual scene and movement.
+
+## Development
+
+    npm test
+
+The timeline is deterministic; every rendered state is derived from film time. For diagnostic preview use `?qa=1&t=35`, which shows object/camera state and a camera-lock button. This allows a fixed-camera independent-motion check. `window.__film` also exposes the test transport.
+
+## Attribution
+
+Three.js 0.180.0 is vendored under its MIT license in vendor/THREE-LICENSE.txt. All scene geometry, shaders, animation, score, layout and writing are original to this project. The original AI paintings remain in assets and in v1 Git history. A limited portion of one painting supplies surface pigment and distant sky tone; it is mapped onto real geometry and never shown as a slideshow frame. No third-party recordings are used.
