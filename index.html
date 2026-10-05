@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#091c21"><meta name="description" content="山河入梦，一场三分钟的东方山水电影。循一叶孤舟，听风过千山。"><title>山河入梦 · A Dream of Mountains</title><link rel="stylesheet" href="style.css"><link rel="icon" href="assets/seal.svg" type="image/svg+xml"></head>
+<body>
+<main id="film" aria-label="山河入梦，三分钟山水电影">
+<div id="stage" aria-hidden="true"><div class="frame active"><img alt="" fetchpriority="high"></div><div class="frame"><img alt=""></div><div class="light"></div><canvas id="atmosphere"></canvas><div class="mist mist-a"></div><div class="mist mist-b"></div><div class="shade"></div><div class="grain"></div></div>
+<header><a class="brand" href="./" aria-label="山河入梦首页"><span class="seal">山河</span><span>东方山水影像<span class="en">AN ORIENTAL REVERIE</span></span></a><span class="edition">独 立 影 像 <i></i> 贰 零 贰 陆</span></header>
+<div class="edge-note">一 山 一 水 · 皆 是 归 途</div>
+<section id="cover" class="cover"><p class="eyebrow">A CINEMATIC POEM · 03:00</p><h1><span>山河</span><span>入梦</span></h1><p class="subtitle">循一叶孤舟，听风过千山。</p><button id="start" class="start"><span class="play-icon">▷</span><span>入 画<span class="en">BEGIN THE JOURNEY</span></span><span class="arrow">↗</span></button><p class="sound-hint">建议佩戴耳机 · 轻触入画开启声音</p></section>
+<section id="verse" class="verse" aria-live="polite"><p id="chapter"></p><h2 id="scene-title"></h2><p id="scene-verse"></p></section>
+<div id="end" class="end" hidden><p class="eyebrow">THE JOURNEY RETURNS TO YOU</p><h2>心有山河<br>梦自悠长</h2><p>愿每一次远行，都通往心中的故乡。</p><button id="again">再入山河 <span>↺</span></button><small>原创 AI 山水画面 · 原创生成式氛围配乐</small></div>
+<footer><div class="footer-caption"><span id="caption">序 · 山河未醒</span><small id="caption-en">WHERE THE DREAM BEGINS</small></div><div class="controls"><button id="pause" aria-label="播放" title="播放 / 暂停">▷</button><button id="restart" aria-label="从头重播" title="从头重播">↺</button><button id="sound" aria-label="开启声音" aria-pressed="false" title="声音">声 ×</button><button id="fullscreen" aria-label="全屏" title="全屏">⛶</button></div><div class="timeline"><span id="elapsed">00:00</span><input type="range" id="seek" min="0" max="180" step="0.1" value="0" aria-label="影片进度"><span>03:00</span></div><div class="chapter-nav" aria-label="跳转章节"></div></footer>
+<div id="notice" role="status"></div>
+</main><script type="module" src="film.js"></script></body></html>
