@@ -31,6 +31,15 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: shanhe-browser-acceptance
-          path: qa-browser/
+          name: shanhe-browser-frames
+          path: |
+            qa-browser/*.jpg
+            qa-browser/result.json
+          retention-days: 7
+      - name: Preserve full playback video
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shanhe-browser-video
+          path: qa-browser/video/
           retention-days: 7
