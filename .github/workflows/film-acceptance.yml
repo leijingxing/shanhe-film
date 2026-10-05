@@ -3,6 +3,14 @@ on:
   push:
     paths:
       - 'preview-v2/**'
+      - 'index.html'
+      - 'style.css'
+      - 'film.js'
+      - 'world.js'
+      - 'timeline.js'
+      - 'score.js'
+      - 'vendor/**'
+      - 'assets/**'
       - '.github/workflows/film-acceptance.yml'
       - 'tests/browser-acceptance.mjs'
   workflow_dispatch:
@@ -26,6 +34,8 @@ jobs:
       - name: Run complete film and interaction acceptance
         run: |
           python3 -m http.server 8000 > /tmp/film-server.log 2>&1 &
+          if [ -f package.json ]; then npm test; fi
+          if grep -q 'A LIVING LANDSCAPE' index.html; then export FILM_URL=http://127.0.0.1:8000/; fi
           node tests/browser-acceptance.mjs
       - name: Preserve browser evidence
         if: always()

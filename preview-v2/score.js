@@ -346,7 +346,6 @@ export class FilmScore {
   update(timeSeconds,isPlaying) {
     if(this._disposed)return;
     const next=Number.isFinite(timeSeconds)?clamp(timeSeconds,0,SCORE_DURATION):0;
-    const moved=Math.abs(next-this._time);
     this._time=next;this._playing=!!isPlaying;
     if(!this.context||!this.buffer)return;
     const ctx=this.context;
@@ -377,7 +376,7 @@ export class FilmScore {
     }
     const expected=this._filmAt+(ctx.currentTime-this._sourceAt);
     // Scrubs, backward jumps and throttled animation frames are resynchronised.
-    if(!this._source||Math.abs(expected-next)>.115||moved>.25)this._start();
+    if(!this._source||Math.abs(expected-next)>.115)this._start();
     if(this._master.gain.value!==this.volume)this._ramp(this._master.gain,this.volume,.045);
   }
 
